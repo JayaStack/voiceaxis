@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.bars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.bar {
+  width: 4px;
+  height: 28px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  animation: waveBar 0.8s ease-in-out infinite;
+}
