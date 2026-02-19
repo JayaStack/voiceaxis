@@ -1,0 +1,196 @@
+.featureBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slower) var(--ease-out),
+    transform var(--duration-slower) var(--ease-out);
+}
+
+.featureBlock.blockVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.featureBlock.blockReverse {
+  direction: rtl;
+}
+.featureBlock.blockReverse > * { direction: ltr; }
+
+.blockInfo {}
+
+.blockTitle {
+  font-size: clamp(var(--text-3xl), 3.5vw, var(--text-4xl));
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-4);
+}
+
+.blockDesc {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-8);
+}
+
+.blockFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.blockFeatureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.checkIcon { flex-shrink: 0; margin-top: 1px; }
+
+/* ── Visual blocks ── */
+.visualBlock {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  background: var(--color-bg-surface);
+  aspect-ratio: 1;
+  max-width: 460px;
+  width: 100%;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.visualGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, var(--color-accent-glow) 0%, transparent 70%);
+}
+
+/* Brain viz */
+.brainViz {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  z-index: 1;
+  width: 100%;
+}
+
+.brainNode {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+  text-align: center;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Wave viz */
+.waveViz {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 80px;
+  padding: var(--space-8);
+  z-index: 1;
+}
+
+.waveVizBar {
+  flex: 1;
+  background: linear-gradient(to top, var(--color-accent), var(--color-secondary));
+  border-radius: 2px;
+  min-height: 4px;
+  height: 40px;
+  animation: waveBar 0.7s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+/* Connect viz */
+.connectViz {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  width: 100%;
+}
+
+.connectNode {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-text-secondary);
+  text-align: center;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.connectCenter {
+  grid-column: 2;
+  padding: var(--space-3);
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-align: center;
+}
+
+/* Chart viz */
+.chartViz {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  height: 120px;
+  padding: var(--space-8);
+  z-index: 1;
+  width: 100%;
+}
+
+.chartBar {
+  flex: 1;
+  background: linear-gradient(to top, var(--color-accent), rgba(0,212,180,0.3));
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  animation: fadeUp 0.5s var(--ease-out) both;
+  min-height: 8px;
+}
+
+@keyframes waveBar {
+  0%   { transform: scaleY(0.4); }
+  100% { transform: scaleY(1.5); }
+}
+
+@keyframes pulse {
+  0%   { opacity: 1; transform: scale(1); }
+  50%  { opacity: 0.7; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .featureBlock,
+  .featureBlock.blockReverse { grid-template-columns: 1fr; direction: ltr; }
+  .visualBlock { max-width: 360px; }
+}

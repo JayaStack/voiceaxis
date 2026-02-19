@@ -1,4 +1,4 @@
-.page {}
+
 
 .hero {
   position: relative;
@@ -50,40 +50,6 @@
   gap: var(--space-4);
   position: sticky;
   top: calc(var(--nav-height) + var(--space-8));
-}
-
-.missionStat {
-  padding: var(--space-6);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  background: var(--color-bg-surface);
-  text-align: center;
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity var(--duration-slower) var(--ease-out),
-    transform var(--duration-slower) var(--ease-out),
-    border-color var(--duration-base) var(--ease-base);
-}
-
-.missionStat:hover { border-color: var(--color-border-accent); }
-.missionStatVisible { opacity: 1; transform: translateY(0); }
-
-.missionStatNum {
-  display: block;
-  font-family: var(--font-display);
-  font-size: var(--text-3xl);
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--color-accent), #60efdf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: var(--space-1);
-}
-
-.missionStatLabel {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
 }
 
 /* ── Values ── */
@@ -154,115 +120,12 @@
   background: linear-gradient(to bottom, transparent, var(--color-border-accent) 10%, var(--color-border-accent) 90%, transparent);
 }
 
-.timelineItem {
-  display: grid;
-  grid-template-columns: 80px 24px 1fr;
-  gap: var(--space-6);
-  align-items: flex-start;
-  padding-block: var(--space-6);
-  opacity: 0;
-  transform: translateX(-16px);
-  transition:
-    opacity var(--duration-slower) var(--ease-out),
-    transform var(--duration-slower) var(--ease-out);
-}
-
-.timelineVisible { opacity: 1; transform: translateX(0); }
-
-.timelineYear {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  color: var(--color-accent);
-  font-weight: 500;
-  text-align: right;
-  padding-top: 3px;
-}
-
-.timelineDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  border: 2px solid var(--color-bg-elevated);
-  margin-top: 5px;
-  box-shadow: 0 0 12px var(--color-accent-glow);
-  position: relative;
-  left: -3px;
-}
-
-.timelineTitle {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  margin-bottom: var(--space-2);
-}
-
-.timelineDesc {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--leading-relaxed);
-}
-
 /* ── Team ── */
 .teamGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-5);
   margin-top: var(--space-16);
-}
-
-.teamCard {
-  padding: var(--space-8);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  background: var(--color-bg-elevated);
-  text-align: center;
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity var(--duration-slower) var(--ease-out),
-    transform var(--duration-slower) var(--ease-out),
-    border-color var(--duration-base) var(--ease-base),
-    box-shadow var(--duration-base) var(--ease-base);
-}
-
-.teamCard:hover {
-  border-color: var(--color-border-accent);
-  box-shadow: var(--shadow-accent);
-}
-
-.teamVisible { opacity: 1; transform: translateY(0); }
-
-.teamAvatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--text-sm);
-  font-weight: 800;
-  color: white;
-  margin: 0 auto var(--space-5);
-  letter-spacing: 0.05em;
-}
-
-.teamName {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  margin-bottom: var(--space-1);
-}
-
-.teamRole {
-  font-size: var(--text-sm);
-  color: var(--color-accent);
-  font-weight: 500;
-  margin-bottom: var(--space-3);
-}
-
-.teamBio {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--leading-relaxed);
 }
 
 /* ── Responsive ── */
@@ -276,6 +139,5 @@
 @media (max-width: 640px) {
   .teamGrid     { grid-template-columns: 1fr; }
   .valuesGrid   { grid-template-columns: 1fr 1fr; }
-  .timelineItem { grid-template-columns: 60px 18px 1fr; gap: var(--space-4); }
   .timelineLine { left: 72px; }
 }

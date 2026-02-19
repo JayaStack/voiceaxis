@@ -1,0 +1,119 @@
+.planCard {
+  position: relative;
+  padding: var(--space-10);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slower) var(--ease-out),
+    transform var(--duration-slower) var(--ease-out),
+    border-color var(--duration-base) var(--ease-base),
+    box-shadow var(--duration-base) var(--ease-base);
+}
+
+.planVisible { opacity: 1; transform: translateY(0); }
+
+.planCard:hover {
+  border-color: var(--color-border-hover);
+}
+
+.planFeatured {
+  border-color: var(--color-border-accent);
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-accent);
+}
+
+.planBadge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-accent);
+  color: var(--color-bg-dark);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  letter-spacing: var(--tracking-wider);
+}
+
+.planHeader {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-8);
+}
+
+.planName {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.planDesc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.planPrice {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.priceCurrency {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.priceAmount {
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-tight);
+}
+
+.pricePeriod {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.priceCustom {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+.priceNote {
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  margin-top: var(--space-2);
+  font-weight: 500;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+  flex: 1;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.featureItem svg { flex-shrink: 0; }

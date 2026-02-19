@@ -1,0 +1,54 @@
+.teamCard {
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-elevated);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slower) var(--ease-out),
+    transform var(--duration-slower) var(--ease-out),
+    border-color var(--duration-base) var(--ease-base),
+    box-shadow var(--duration-base) var(--ease-base);
+}
+
+.teamCard:hover {
+  border-color: var(--color-border-accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.teamVisible { opacity: 1; transform: translateY(0); }
+
+.teamAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: white;
+  margin: 0 auto var(--space-5);
+  letter-spacing: 0.05em;
+}
+
+.teamName {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.teamRole {
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: var(--space-3);
+}
+
+.teamBio {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}

@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom'
-import { useInView } from '../../hooks/useInView'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
+import HomeHero from '../../components/HomeHero/HomeHero'
+import StatCard from '../../components/StatCard/StatCard'
+import FeatureCard from '../../components/FeatureCard/FeatureCard'
+import TestimonialCard from '../../components/TestimonialCard/TestimonialCard'
+import StepCard from '../../components/StepCard/StepCard'
 import styles from './Home.module.css'
 
 /* ── Data ── */
@@ -93,122 +97,13 @@ const TESTIMONIALS = [
 
 const LOGOS = ['Accenture', 'HDFC', 'Meesho', 'Razorpay', 'Flipkart', 'Swiggy', 'Byju\'s', 'PolicyBazaar', 'Groww', 'CRED']
 
-/* ── Sub-components ── */
-function StatCard({ value, label }) {
-  const { ref, isVisible } = useInView()
-  return (
-    <div ref={ref} className={`${styles.statCard} ${isVisible ? styles.statVisible : ''}`}>
-      <span className={styles.statValue}>{value}</span>
-      <span className={styles.statLabel}>{label}</span>
-    </div>
-  )
-}
-
-function FeatureCard({ icon, title, desc, delay }) {
-  const { ref, isVisible } = useInView()
-  return (
-    <div
-      ref={ref}
-      className={`${styles.featureCard} ${isVisible ? styles.featureVisible : ''}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className={styles.featureIcon} aria-hidden="true">{icon}</div>
-      <h3 className={styles.featureTitle}>{title}</h3>
-      <p className={styles.featureDesc}>{desc}</p>
-    </div>
-  )
-}
-
-function TestimonialCard({ quote, name, role, initials }) {
-  const { ref, isVisible } = useInView()
-  return (
-    <div ref={ref} className={`${styles.testimonialCard} ${isVisible ? styles.testimonialVisible : ''}`}>
-      <div className={styles.stars} aria-label="5 stars">{'★'.repeat(5)}</div>
-      <blockquote className={styles.quote}>"{quote}"</blockquote>
-      <div className={styles.author}>
-        <div className={styles.avatar} aria-hidden="true">{initials}</div>
-        <div>
-          <div className={styles.authorName}>{name}</div>
-          <div className={styles.authorRole}>{role}</div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 /* ── Page ── */
 export default function Home() {
   return (
     <div className={styles.page}>
 
       {/* ═══ HERO ═══ */}
-      <section className={styles.hero} aria-label="Hero">
-        <div className={styles.heroBg} aria-hidden="true">
-          <div className={styles.heroOrb1} />
-          <div className={styles.heroOrb2} />
-          <div className={styles.heroGrid} />
-        </div>
-
-        <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroBadge}>
-            <span className={styles.badgeDot} aria-hidden="true" />
-            Introducing VoiceAxis v3 — now with 52 languages
-          </div>
-
-          <h1 className={styles.heroTitle}>
-            Enterprise AI Agents That
-            <br />
-            <span className="text-gradient">Actually Understand</span>
-            <br />
-            Your Customers
-          </h1>
-
-          <p className={styles.heroSubtitle}>
-            Deploy intelligent voice agents in hours. Handle millions of conversations simultaneously.
-            Reduce costs by up to 70% while improving customer satisfaction scores.
-          </p>
-
-          <div className={styles.heroActions}>
-            <Link to="/contact">
-              <Button size="lg">Get a Free Demo</Button>
-            </Link>
-            <Link to="/features">
-              <Button size="lg" variant="secondary">See How It Works →</Button>
-            </Link>
-          </div>
-
-          <p className={styles.heroNote}>
-            No credit card required · 14-day free trial · SOC 2 compliant
-          </p>
-        </div>
-
-        {/* Live call visualizer */}
-        <div className={`container ${styles.heroVisual}`} aria-hidden="true">
-          <div className={styles.callCard}>
-            <div className={styles.callHeader}>
-              <span className={styles.callDot} />
-              <span className={styles.callLabel}>Live Conversation</span>
-              <span className={styles.callTimer}>2:47</span>
-            </div>
-            <div className={styles.waveform}>
-              {Array.from({ length: 28 }).map((_, i) => (
-                <div
-                  key={i}
-                  className={styles.wavebar}
-                  style={{ animationDelay: `${(i * 0.07).toFixed(2)}s`, animationDuration: `${0.6 + (i % 4) * 0.1}s` }}
-                />
-              ))}
-            </div>
-            <div className={styles.callTranscript}>
-              <span className={styles.transcriptLine}>AI Agent: "I've located your account and can see the last payment was on March 12th..."</span>
-            </div>
-            <div className={styles.callMeta}>
-              <span className={styles.callTag}>Intent: Billing Inquiry</span>
-              <span className={styles.callTag}>Sentiment: Neutral → Positive</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHero />
 
       {/* ═══ LOGO STRIP ═══ */}
       <section className={styles.logos} aria-label="Trusted by">
@@ -270,21 +165,9 @@ export default function Home() {
               { num: '01', title: 'Connect your data', desc: 'Link your CRM, knowledge base, and call systems. Our ingestion pipeline structures everything automatically.' },
               { num: '02', title: 'Build your agent', desc: 'Use the no-code flow builder to define conversation paths, escalation rules, and agent personality.' },
               { num: '03', title: 'Deploy & optimize', desc: 'Go live on any channel. Monitor performance in real time and improve with conversation insights.' },
-            ].map(({ num, title, desc }, i) => {
-              const { ref, isVisible } = useInView()
-              return (
-                <div
-                  key={num}
-                  ref={ref}
-                  className={`${styles.step} ${isVisible ? styles.stepVisible : ''}`}
-                  style={{ transitionDelay: `${i * 120}ms` }}
-                >
-                  <div className={styles.stepNum}>{num}</div>
-                  <h3 className={styles.stepTitle}>{title}</h3>
-                  <p className={styles.stepDesc}>{desc}</p>
-                </div>
-              )
-            })}
+            ].map((step, i) => (
+              <StepCard key={step.num} {...step} delay={i * 120} />
+            ))}
           </div>
         </div>
       </section>

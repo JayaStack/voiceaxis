@@ -1,0 +1,48 @@
+.featureCard {
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-elevated);
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slower) var(--ease-out),
+    transform var(--duration-slower) var(--ease-out),
+    border-color var(--duration-base) var(--ease-base),
+    background var(--duration-base) var(--ease-base),
+    box-shadow var(--duration-base) var(--ease-base);
+}
+
+.featureCard:hover {
+  border-color: var(--color-border-accent);
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-accent);
+}
+
+.featureVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.featureIcon {
+  display: inline-flex;
+  padding: var(--space-3);
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-lg);
+  color: var(--color-accent);
+  margin-bottom: var(--space-5);
+}
+
+.featureTitle {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+}
+
+.featureDesc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}

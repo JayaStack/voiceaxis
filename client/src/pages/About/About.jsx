@@ -1,5 +1,8 @@
 import { useInView } from "../../hooks/useInView";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
+import StatCard from "../../components/StatCard/StatCard";
+import TimelineItem from "../../components/TimelineItem/TimelineItem";
+import TeamCard from "../../components/TeamCard/TeamCard";
 import styles from "./About.module.css";
 
 const TEAM = [
@@ -16,6 +19,7 @@ const TEAM = [
     bio: "Led voice AI infra at Amazon Alexa for 6 years. Built systems handling 2B+ interactions/year.",
     initials: "PK",
     color: "#6366f1",
+    delay: 60,
   },
   {
     name: "James Wu",
@@ -23,6 +27,7 @@ const TEAM = [
     bio: "Previously VP Product at Intercom. Expert in conversational UX and PLG growth.",
     initials: "JW",
     color: "#f59e0b",
+    delay: 120,
   },
   {
     name: "Divya Nair",
@@ -30,6 +35,7 @@ const TEAM = [
     bio: "Published 22 NLP papers. Ex-Microsoft Research Cambridge. Specializes in low-resource language models.",
     initials: "DN",
     color: "#10b981",
+    delay: 180,
   },
   {
     name: "Rohit Agarwal",
@@ -37,6 +43,7 @@ const TEAM = [
     bio: "Scaled engineering from 8 to 120 engineers at Razorpay. Distributed systems architect.",
     initials: "RA",
     color: "#00d4b4",
+    delay: 240,
   },
   {
     name: "Fatima Al-Hassan",
@@ -44,6 +51,7 @@ const TEAM = [
     bio: "Managed CS at Zendesk across APAC. Built onboarding frameworks adopted by 3,000+ customers.",
     initials: "FA",
     color: "#6366f1",
+    delay: 300,
   },
 ];
 
@@ -103,24 +111,6 @@ const VALUES = [
   },
 ];
 
-function TimelineItem({ year, title, desc, index }) {
-  const { ref, isVisible } = useInView();
-  return (
-    <div
-      ref={ref}
-      className={`${styles.timelineItem} ${isVisible ? styles.timelineVisible : ""}`}
-      style={{ transitionDelay: `${index * 80}ms` }}
-    >
-      <div className={styles.timelineYear}>{year}</div>
-      <div className={styles.timelineDot} aria-hidden="true" />
-      <div className={styles.timelineContent}>
-        <h3 className={styles.timelineTitle}>{title}</h3>
-        <p className={styles.timelineDesc}>{desc}</p>
-      </div>
-    </div>
-  );
-}
-
 export default function About() {
   return (
     <div className={styles.page}>
@@ -170,19 +160,9 @@ export default function About() {
                 { n: "52+", l: "Languages" },
                 { n: "12M+", l: "Monthly conversations" },
                 { n: "120+", l: "Team members" },
-              ].map(({ n, l }) => {
-                const { ref, isVisible } = useInView();
-                return (
-                  <div
-                    key={l}
-                    ref={ref}
-                    className={`${styles.missionStat} ${isVisible ? styles.missionStatVisible : ""}`}
-                  >
-                    <span className={styles.missionStatNum}>{n}</span>
-                    <span className={styles.missionStatLabel}>{l}</span>
-                  </div>
-                );
-              })}
+              ].map(({ n, l }) => (
+                <StatCard key={l} value={n} label={l} variant="mission" />
+              ))}
             </div>
           </div>
         </div>
@@ -239,29 +219,9 @@ export default function About() {
             subtitle="Our team brings deep expertise from Google, Amazon, Microsoft, and the world's top research institutions."
           />
           <div className={styles.teamGrid}>
-            {TEAM.map(({ name, role, bio, initials, color }, i) => {
-              const { ref, isVisible } = useInView();
-              return (
-                <div
-                  key={name}
-                  ref={ref}
-                  className={`${styles.teamCard} ${isVisible ? styles.teamVisible : ""}`}
-                  style={{ transitionDelay: `${i * 60}ms` }}
-                >
-                  <div
-                    className={styles.teamAvatar}
-                    style={{
-                      background: `linear-gradient(135deg, ${color}, #050a0e88)`,
-                    }}
-                  >
-                    {initials}
-                  </div>
-                  <h3 className={styles.teamName}>{name}</h3>
-                  <div className={styles.teamRole}>{role}</div>
-                  <p className={styles.teamBio}>{bio}</p>
-                </div>
-              );
-            })}
+            {TEAM.map((member, i) => (
+              <TeamCard key={member.name} {...member} delay={i * 60} />
+            ))}
           </div>
         </div>
       </section>

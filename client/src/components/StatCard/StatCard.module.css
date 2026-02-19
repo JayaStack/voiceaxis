@@ -1,0 +1,79 @@
+.statCard {
+  text-align: center;
+  padding: var(--space-8) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-surface);
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slower) var(--ease-out),
+    transform var(--duration-slower) var(--ease-out),
+    border-color var(--duration-base) var(--ease-base),
+    box-shadow var(--duration-base) var(--ease-base);
+}
+
+.statCard:hover {
+  border-color: var(--color-border-accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.statVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.statValue {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-accent), #60efdf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.1;
+  margin-bottom: var(--space-2);
+}
+
+.statLabel {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* Mission variant for About page */
+.missionStat {
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-surface);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slower) var(--ease-out),
+    transform var(--duration-slower) var(--ease-out),
+    border-color var(--duration-base) var(--ease-base);
+}
+
+.missionStat:hover { border-color: var(--color-border-accent); }
+.missionStatVisible { opacity: 1; transform: translateY(0); }
+
+.missionStatNum {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-accent), #60efdf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-1);
+}
+
+.missionStatLabel {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
