@@ -70,7 +70,7 @@ export default function ContactForm() {
         <Field
           label="Full Name"
           name="name"
-          placeholder="Anika Reddy"
+          placeholder="Ananya"
           required
           {...fieldProps}
         />
@@ -78,7 +78,7 @@ export default function ContactForm() {
           label="Work Email"
           name="email"
           type="email"
-          placeholder="anika@company.com"
+          placeholder="ananya@gmail.com"
           required
           {...fieldProps}
         />
@@ -87,7 +87,7 @@ export default function ContactForm() {
         <Field
           label="Company"
           name="company"
-          placeholder="Acme Corp"
+          placeholder="Buenve Grp"
           required
           {...fieldProps}
         />
@@ -95,7 +95,7 @@ export default function ContactForm() {
           label="Phone"
           name="phone"
           type="tel"
-          placeholder="+91 98765 43210"
+          placeholder="+91 97905 40716"
           {...fieldProps}
         />
       </div>

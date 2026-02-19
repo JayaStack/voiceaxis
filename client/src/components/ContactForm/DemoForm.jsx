@@ -68,7 +68,7 @@ export default function DemoForm() {
       <Field
         label="Full Name"
         name="name"
-        placeholder="Marcus Whitfield"
+        placeholder="Shirou Emiya"
         required
         {...fieldProps}
       />
@@ -76,14 +76,14 @@ export default function DemoForm() {
         label="Work Email"
         name="email"
         type="email"
-        placeholder="marcus@company.com"
+        placeholder="info@Studio.com"
         required
         {...fieldProps}
       />
       <Field
         label="Company"
         name="company"
-        placeholder="RetailEdge"
+        placeholder="Ufotable"
         {...fieldProps}
       />
       <Field

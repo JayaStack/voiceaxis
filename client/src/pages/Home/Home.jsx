@@ -80,18 +80,21 @@ const TESTIMONIALS = [
     name: 'Anika Reddy',
     role: 'VP Customer Operations, FinServe Global',
     initials: 'AR',
+    img: 'https://thumbs.dreamstime.com/b/profile-picture-smiling-indian-young-businesswoman-look-camera-posing-workplace-headshot-portrait-happy-millennial-ethnic-190959731.jpg',
   },
   {
     quote: 'We went live in 6 hours. Within two weeks, 74% of routine queries were resolved without any human involvement. ROI was visible before the month ended.',
     name: 'Marcus Whitfield',
     role: 'CTO, RetailEdge',
     initials: 'MW',
+    img: 'https://img.freepik.com/free-photo/close-up-portrait-young-bearded-man-white-shirt-jacket-posing-camera-with-broad-smile-isolated-gray_171337-629.jpg?semt=ais_user_personalization&w=740&q=80',
   },
   {
     quote: 'The analytics dashboard alone changed how we run our support org. We can now see sentiment trends across 50,000 calls per day in real time.',
     name: 'Sneha Patel',
     role: 'Head of CX, Neobank Zeta',
     initials: 'SP',
+    img: 'https://media.istockphoto.com/id/1317804578/photo/one-businesswoman-headshot-smiling-at-the-camera.jpg?s=612x612&w=0&k=20&c=EqR2Lffp4tkIYzpqYh8aYIPRr-gmZliRHRxcQC5yylY=',
   },
 ]
 

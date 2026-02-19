@@ -7,10 +7,11 @@ import styles from "./About.module.css";
 
 const TEAM = [
   {
-    name: "Aarav Mehta",
+    name: "Jaya Sarathy",
     role: "CEO & Co-founder",
     bio: "Former ML research lead at Google DeepMind. PhD in computational linguistics from MIT.",
-    initials: "AM",
+    initials: "JS",
+    image: "images/Jaya_Sarathy.jpg",
     color: "#00d4b4",
   },
   {
@@ -19,6 +20,7 @@ const TEAM = [
     bio: "Led voice AI infra at Amazon Alexa for 6 years. Built systems handling 2B+ interactions/year.",
     initials: "PK",
     color: "#6366f1",
+    image: "images/Priya_Krishnamurthy.jpg",
     delay: 60,
   },
   {
@@ -27,6 +29,7 @@ const TEAM = [
     bio: "Previously VP Product at Intercom. Expert in conversational UX and PLG growth.",
     initials: "JW",
     color: "#f59e0b",
+    image: "images/James_Wu.jpg",
     delay: 120,
   },
   {
@@ -35,6 +38,7 @@ const TEAM = [
     bio: "Published 22 NLP papers. Ex-Microsoft Research Cambridge. Specializes in low-resource language models.",
     initials: "DN",
     color: "#10b981",
+    image: "images/Divya_Nair.jpg",
     delay: 180,
   },
   {
@@ -43,6 +47,7 @@ const TEAM = [
     bio: "Scaled engineering from 8 to 120 engineers at Razorpay. Distributed systems architect.",
     initials: "RA",
     color: "#00d4b4",
+    image: "images/Rohit_Agarwal.jpg",
     delay: 240,
   },
   {
@@ -51,6 +56,7 @@ const TEAM = [
     bio: "Managed CS at Zendesk across APAC. Built onboarding frameworks adopted by 3,000+ customers.",
     initials: "FA",
     color: "#6366f1",
+    image: "images/Fatima_Al_Hassan.jpg",
     delay: 300,
   },
 ];

@@ -63,7 +63,7 @@ export default function Contact() {
                       label: "Support",
                       val: "support@voiceaxis.io",
                     },
-                    { icon: "📞", label: "Hotline", val: "+1 (800) 555-0192" },
+                    { icon: "📞", label: "Hotline", val: "+91-755-516-4186" },
                   ].map(({ icon, label, val }) => (
                     <div key={label} className={styles.infoItem}>
                       <span className={styles.infoIcon}>{icon}</span>
@@ -80,8 +80,8 @@ export default function Contact() {
                 <h3 className={styles.infoTitle}>Offices</h3>
                 {[
                   {
-                    city: "Bangalore",
-                    addr: "Prestige Tech Park, Whitefield, 560066",
+                    city: "Chennai",
+                    addr: "46., Devarajamdlist, Park Town,  600003",
                   },
                   {
                     city: "Singapore",
