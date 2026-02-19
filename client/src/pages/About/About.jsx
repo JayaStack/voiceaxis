@@ -1,38 +1,114 @@
-import { useInView } from '../../hooks/useInView'
-import SectionHeader from '../../components/SectionHeader/SectionHeader'
-import styles from './About.module.css'
+import { useInView } from "../../hooks/useInView";
+import SectionHeader from "../../components/SectionHeader/SectionHeader";
+import styles from "./About.module.css";
 
 const TEAM = [
-  { name: 'Aarav Mehta',      role: 'CEO & Co-founder',      bio: 'Former ML research lead at Google DeepMind. PhD in computational linguistics from MIT.', initials: 'AM', color: '#00d4b4' },
-  { name: 'Priya Krishnamurthy', role: 'CTO & Co-founder',   bio: 'Led voice AI infra at Amazon Alexa for 6 years. Built systems handling 2B+ interactions/year.', initials: 'PK', color: '#6366f1' },
-  { name: 'James Wu',         role: 'Chief Product Officer',  bio: 'Previously VP Product at Intercom. Expert in conversational UX and PLG growth.', initials: 'JW', color: '#f59e0b' },
-  { name: 'Divya Nair',       role: 'Head of AI Research',   bio: 'Published 22 NLP papers. Ex-Microsoft Research Cambridge. Specializes in low-resource language models.', initials: 'DN', color: '#10b981' },
-  { name: 'Rohit Agarwal',    role: 'VP of Engineering',     bio: 'Scaled engineering from 8 to 120 engineers at Razorpay. Distributed systems architect.', initials: 'RA', color: '#00d4b4' },
-  { name: 'Fatima Al-Hassan', role: 'VP of Customer Success', bio: 'Managed CS at Zendesk across APAC. Built onboarding frameworks adopted by 3,000+ customers.', initials: 'FA', color: '#6366f1' },
-]
+  {
+    name: "Aarav Mehta",
+    role: "CEO & Co-founder",
+    bio: "Former ML research lead at Google DeepMind. PhD in computational linguistics from MIT.",
+    initials: "AM",
+    color: "#00d4b4",
+  },
+  {
+    name: "Priya Krishnamurthy",
+    role: "CTO & Co-founder",
+    bio: "Led voice AI infra at Amazon Alexa for 6 years. Built systems handling 2B+ interactions/year.",
+    initials: "PK",
+    color: "#6366f1",
+  },
+  {
+    name: "James Wu",
+    role: "Chief Product Officer",
+    bio: "Previously VP Product at Intercom. Expert in conversational UX and PLG growth.",
+    initials: "JW",
+    color: "#f59e0b",
+  },
+  {
+    name: "Divya Nair",
+    role: "Head of AI Research",
+    bio: "Published 22 NLP papers. Ex-Microsoft Research Cambridge. Specializes in low-resource language models.",
+    initials: "DN",
+    color: "#10b981",
+  },
+  {
+    name: "Rohit Agarwal",
+    role: "VP of Engineering",
+    bio: "Scaled engineering from 8 to 120 engineers at Razorpay. Distributed systems architect.",
+    initials: "RA",
+    color: "#00d4b4",
+  },
+  {
+    name: "Fatima Al-Hassan",
+    role: "VP of Customer Success",
+    bio: "Managed CS at Zendesk across APAC. Built onboarding frameworks adopted by 3,000+ customers.",
+    initials: "FA",
+    color: "#6366f1",
+  },
+];
 
 const TIMELINE = [
-  { year: '2020', title: 'Founded in Bangalore', desc: 'Three researchers left Google and Amazon with one conviction: enterprise voice AI was broken and they could fix it.' },
-  { year: '2021', title: '$6M Seed Round', desc: 'Led by Accel India. Signed first 10 enterprise customers in BFSI and telecom. Processed our first 1M calls.' },
-  { year: '2022', title: '$28M Series A', desc: 'Lightspeed and Sequoia co-led. Launched multilingual support across 30 languages. Expanded to Southeast Asia.' },
-  { year: '2023', title: '$80M Series B', desc: 'Tiger Global. Crossed 200 enterprise customers. Opened Singapore and Dubai offices. Hit 5M calls/month.' },
-  { year: '2024', title: 'Platform v3 Launch', desc: 'Proprietary NLU engine delivering 40% improvement in intent accuracy. 12M+ calls processed monthly.' },
-  { year: '2025', title: 'Global Expansion', desc: 'Entered North America and Europe. 500+ enterprise clients. Recognized as Gartner Cool Vendor in CX AI.' },
-]
+  {
+    year: "2020",
+    title: "Founded in Bangalore",
+    desc: "Three researchers left Google and Amazon with one conviction: enterprise voice AI was broken and they could fix it.",
+  },
+  {
+    year: "2021",
+    title: "$6M Seed Round",
+    desc: "Led by Accel India. Signed first 10 enterprise customers in BFSI and telecom. Processed our first 1M calls.",
+  },
+  {
+    year: "2022",
+    title: "$28M Series A",
+    desc: "Lightspeed and Sequoia co-led. Launched multilingual support across 30 languages. Expanded to Southeast Asia.",
+  },
+  {
+    year: "2023",
+    title: "$80M Series B",
+    desc: "Tiger Global. Crossed 200 enterprise customers. Opened Singapore and Dubai offices. Hit 5M calls/month.",
+  },
+  {
+    year: "2024",
+    title: "Platform v3 Launch",
+    desc: "Proprietary NLU engine delivering 40% improvement in intent accuracy. 12M+ calls processed monthly.",
+  },
+  {
+    year: "2025",
+    title: "Global Expansion",
+    desc: "Entered North America and Europe. 500+ enterprise clients. Recognized as Gartner Cool Vendor in CX AI.",
+  },
+];
 
 const VALUES = [
-  { emoji: '🎯', title: 'Radical Clarity', desc: 'We build products that are powerful and simple. Complexity is a failure of design.' },
-  { emoji: '🔬', title: 'Research First', desc: 'We publish our research openly. The field advances faster when we share what we learn.' },
-  { emoji: '🌍', title: 'Inclusive by Design', desc: 'AI should work for every language, accent, and culture — not just English speakers.' },
-  { emoji: '🤝', title: 'Customer Outcomes', desc: 'We measure our success exclusively by measurable outcomes for the people using our product.' },
-]
+  {
+    emoji: "🎯",
+    title: "Radical Clarity",
+    desc: "We build products that are powerful and simple. Complexity is a failure of design.",
+  },
+  {
+    emoji: "🔬",
+    title: "Research First",
+    desc: "We publish our research openly. The field advances faster when we share what we learn.",
+  },
+  {
+    emoji: "🌍",
+    title: "Inclusive by Design",
+    desc: "AI should work for every language, accent, and culture — not just English speakers.",
+  },
+  {
+    emoji: "🤝",
+    title: "Customer Outcomes",
+    desc: "We measure our success exclusively by measurable outcomes for the people using our product.",
+  },
+];
 
 function TimelineItem({ year, title, desc, index }) {
-  const { ref, isVisible } = useInView()
+  const { ref, isVisible } = useInView();
   return (
     <div
       ref={ref}
-      className={`${styles.timelineItem} ${isVisible ? styles.timelineVisible : ''}`}
+      className={`${styles.timelineItem} ${isVisible ? styles.timelineVisible : ""}`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
       <div className={styles.timelineYear}>{year}</div>
@@ -42,13 +118,12 @@ function TimelineItem({ year, title, desc, index }) {
         <p className={styles.timelineDesc}>{desc}</p>
       </div>
     </div>
-  )
+  );
 }
 
 export default function About() {
   return (
     <div className={styles.page}>
-
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroBg} aria-hidden="true" />
@@ -66,29 +141,47 @@ export default function About() {
         <div className="container">
           <div className={styles.missionGrid}>
             <div className={styles.missionText}>
-              <span className="chip" style={{ marginBottom: 'var(--space-4)', display: 'inline-flex' }}>Mission</span>
-              <h2 className={styles.missionTitle}>Making exceptional customer service infinitely scalable</h2>
+              <span
+                className="chip"
+                style={{
+                  marginBottom: "var(--space-4)",
+                  display: "inline-flex",
+                }}
+              >
+                Mission
+              </span>
+              <h2 className={styles.missionTitle}>
+                Making exceptional customer service infinitely scalable
+              </h2>
               <p className={styles.missionDesc}>
-                A small company in Tier 2 India should be able to deliver the same customer experience as a Fortune 500 call center. A startup shouldn't need 200 agents to handle growth.
+                A small company in Tier 2 India should be able to deliver the
+                same customer experience as a Fortune 500 call center. A startup
+                shouldn't need 200 agents to handle growth.
               </p>
               <p className={styles.missionDesc}>
-                AI eliminates those constraints. Our job is to make it deployable, reliable, and genuinely good — so any business can compete on customer experience.
+                AI eliminates those constraints. Our job is to make it
+                deployable, reliable, and genuinely good — so any business can
+                compete on customer experience.
               </p>
             </div>
             <div className={styles.missionStats}>
               {[
-                { n: '500+', l: 'Enterprise clients' },
-                { n: '52+',  l: 'Languages' },
-                { n: '12M+', l: 'Monthly conversations' },
-                { n: '120+', l: 'Team members' },
+                { n: "500+", l: "Enterprise clients" },
+                { n: "52+", l: "Languages" },
+                { n: "12M+", l: "Monthly conversations" },
+                { n: "120+", l: "Team members" },
               ].map(({ n, l }) => {
-                const { ref, isVisible } = useInView()
+                const { ref, isVisible } = useInView();
                 return (
-                  <div key={l} ref={ref} className={`${styles.missionStat} ${isVisible ? styles.missionStatVisible : ''}`}>
+                  <div
+                    key={l}
+                    ref={ref}
+                    className={`${styles.missionStat} ${isVisible ? styles.missionStatVisible : ""}`}
+                  >
                     <span className={styles.missionStatNum}>{n}</span>
                     <span className={styles.missionStatLabel}>{l}</span>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -98,17 +191,24 @@ export default function About() {
       {/* Values */}
       <section className={`section ${styles.valuesSection}`}>
         <div className="container">
-          <SectionHeader chip="Values" title='What we stand for' />
+          <SectionHeader chip="Values" title="What we stand for" />
           <div className={styles.valuesGrid}>
             {VALUES.map(({ emoji, title, desc }, i) => {
-              const { ref, isVisible } = useInView()
+              const { ref, isVisible } = useInView();
               return (
-                <div key={title} ref={ref} className={`${styles.valueCard} ${isVisible ? styles.valueVisible : ''}`} style={{ transitionDelay: `${i * 80}ms` }}>
-                  <span className={styles.valueEmoji} aria-hidden="true">{emoji}</span>
+                <div
+                  key={title}
+                  ref={ref}
+                  className={`${styles.valueCard} ${isVisible ? styles.valueVisible : ""}`}
+                  style={{ transitionDelay: `${i * 80}ms` }}
+                >
+                  <span className={styles.valueEmoji} aria-hidden="true">
+                    {emoji}
+                  </span>
                   <h3 className={styles.valueTitle}>{title}</h3>
                   <p className={styles.valueDesc}>{desc}</p>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
@@ -123,7 +223,9 @@ export default function About() {
           />
           <div className={styles.timeline}>
             <div className={styles.timelineLine} aria-hidden="true" />
-            {TIMELINE.map((item, i) => <TimelineItem key={item.year} {...item} index={i} />)}
+            {TIMELINE.map((item, i) => (
+              <TimelineItem key={item.year} {...item} index={i} />
+            ))}
           </div>
         </div>
       </section>
@@ -138,21 +240,31 @@ export default function About() {
           />
           <div className={styles.teamGrid}>
             {TEAM.map(({ name, role, bio, initials, color }, i) => {
-              const { ref, isVisible } = useInView()
+              const { ref, isVisible } = useInView();
               return (
-                <div key={name} ref={ref} className={`${styles.teamCard} ${isVisible ? styles.teamVisible : ''}`} style={{ transitionDelay: `${i * 60}ms` }}>
-                  <div className={styles.teamAvatar} style={{ background: `linear-gradient(135deg, ${color}, #050a0e88)` }}>
+                <div
+                  key={name}
+                  ref={ref}
+                  className={`${styles.teamCard} ${isVisible ? styles.teamVisible : ""}`}
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  <div
+                    className={styles.teamAvatar}
+                    style={{
+                      background: `linear-gradient(135deg, ${color}, #050a0e88)`,
+                    }}
+                  >
                     {initials}
                   </div>
                   <h3 className={styles.teamName}>{name}</h3>
                   <div className={styles.teamRole}>{role}</div>
                   <p className={styles.teamBio}>{bio}</p>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
