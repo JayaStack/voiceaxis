@@ -49,7 +49,7 @@ MongoDB Atlas
 
 ```bash
 # git Clone
-git clone https://github.com/yourusername/voiceaxis.git
+git clone https://github.com/JayaStack/voiceaxis.git
 cd voiceaxis
 
 
