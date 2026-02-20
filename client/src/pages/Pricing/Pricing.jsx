@@ -81,6 +81,7 @@ const FAQS = [
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false)
+  const [selectedPlan, setSelectedPlan] = useState(null)
 
   return (
     <div className={styles.page}>
@@ -120,7 +121,14 @@ export default function Pricing() {
         <div className="container">
           <div className={styles.plansGrid}>
             {PLANS.map((plan, i) => (
-              <PricingCard key={plan.name} plan={plan} annual={annual} index={i} />
+              <PricingCard
+                key={plan.name}
+                plan={plan}
+                annual={annual}
+                index={i}
+                selected={selectedPlan === plan.name}
+                onSelect={() => setSelectedPlan(plan.name)}
+              />
             ))}
           </div>
 

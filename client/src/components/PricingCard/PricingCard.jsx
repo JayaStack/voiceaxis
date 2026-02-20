@@ -3,15 +3,16 @@ import { useInView } from "../../hooks/useInView";
 import Button from "../Button/Button";
 import styles from "./PricingCard.module.css";
 
-export default function PricingCard({ plan, annual, index }) {
+export default function PricingCard({ plan, annual, index, selected, onSelect }) {
   const { ref, isVisible } = useInView();
   const price = plan.monthly ? (annual ? plan.annual : plan.monthly) : null;
 
   return (
     <div
       ref={ref}
-      className={`${styles.planCard} ${plan.color === "accent" ? styles.planFeatured : ""} ${isVisible ? styles.planVisible : ""}`}
+      className={`${styles.planCard} ${selected ? styles.planSelected : ""} ${isVisible ? styles.planVisible : ""}`}
       style={{ transitionDelay: `${index * 80}ms` }}
+      onClick={onSelect}
     >
       {plan.badge && <div className={styles.planBadge}>{plan.badge}</div>}
 
@@ -53,14 +54,14 @@ export default function PricingCard({ plan, annual, index }) {
                 cy="7"
                 r="6"
                 fill={
-                  plan.color === "accent"
+                  selected
                     ? "rgba(0,212,180,0.15)"
                     : "rgba(255,255,255,0.06)"
                 }
               />
               <path
                 d="M4.5 7l2 2 3-4"
-                stroke={plan.color === "accent" ? "#00d4b4" : "#7a9eb5"}
+                stroke={selected ? "#00d4b4" : "#7a9eb5"}
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -71,15 +72,13 @@ export default function PricingCard({ plan, annual, index }) {
         ))}
       </ul>
 
-      <Link to={plan.href} style={{ display: "block" }}>
-        <Button
-          variant={plan.color === "accent" ? "primary" : "secondary"}
-          fullWidth
-          size="md"
-        >
-          {plan.cta}
-        </Button>
-      </Link>
+      {selected && (
+        <Link to={plan.href} style={{ display: "block" }}>
+          <Button variant="primary" fullWidth size="md">
+            {plan.cta}
+          </Button>
+        </Link>
+      )}
     </div>
   );
 }
