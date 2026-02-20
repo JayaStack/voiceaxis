@@ -1,103 +1,45 @@
 # VoiceAxis — Enterprise AI Voice Platform
 
-A production-ready full-stack SaaS website built for an AI voice automation company. Built with React (Vite), Node.js/Express, and MongoDB Atlas.
+🚀 VoiceAxis
+Enterprise AI Voice Automation Platform
+
+Production-ready full-stack SaaS marketing website for an AI voice automation company.
+Built with React (Vite), Node.js/Express, and MongoDB Atlas.
 
 ---
+
+### 🌐 Live Demo
+
+Frontend: https://voicaxis.netlify.app
+
+Backend API: https://voiceaxis.onrender.com
 
 ## 1. Architecture Overview
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        CLIENT (React)                        │
-│  React Router → Lazy Pages → Components → CSS Modules       │
-│  Vite build → dist/ → Netlify CDN                           │
-└─────────────────────┬───────────────────────────────────────┘
-                      │ HTTP (REST)
-                      │ /api/*
-┌─────────────────────▼───────────────────────────────────────┐
-│                   SERVER (Express)                           │
-│  Routes → Middleware → Controllers → Mongoose → Atlas        │
-│  Render or Vercel serverless                                 │
-└─────────────────────┬───────────────────────────────────────┘
-                      │ Mongoose ODM
-┌─────────────────────▼───────────────────────────────────────┐
-│                  MongoDB Atlas (Free Tier)                    │
-│  contacts | demoBookings | newsletterSubscribers             │
-└─────────────────────────────────────────────────────────────┘
-```
-
-**Key architectural decisions:**
-- Monorepo with `client/` and `server/` directories
-- Frontend completely decoupled from backend — communicates via REST
-- API base URL driven by environment variable — zero localhost hardcoding
-- CSS Modules for component-scoped styles, `index.css` for design tokens
-- Lazy-loaded routes for optimal bundle splitting
+Frontend (React - Netlify)
+        ↓ REST API (/api)
+Backend (Express - Render)
+        ↓
+MongoDB Atlas
 
 ---
 
-## 2. Folder Structure
 
-```
-vai/
-├── client/                    # React frontend (Vite)
-│   ├── public/
-│   │   └── _redirects         # Netlify SPA routing fix
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar/        # Sticky nav, mobile menu, scroll detection
-│   │   │   ├── Footer/        # Links, newsletter, social
-│   │   │   ├── Button/        # Variants: primary, secondary, ghost
-│   │   │   ├── SectionHeader/ # Reusable section heading block
-│   │   │   ├── AnimatedCounter/ # Number ticker for stats
-│   │   │   └── TrustBadge/    # Social proof logos
-│   │   ├── pages/
-│   │   │   ├── Home/          # Hero, stats, features, testimonials, CTA
-│   │   │   ├── Features/      # Deep feature breakdown with demos
-│   │   │   ├── About/         # Mission, team, timeline
-│   │   │   ├── Pricing/       # Plan cards with billing toggle
-│   │   │   └── Contact/       # Form with live validation, demo booking
-│   │   ├── hooks/
-│   │   │   ├── useForm.js     # Generic form state + validation
-│   │   │   └── useInView.js   # Intersection Observer for animations
-│   │   ├── utils/
-│   │   │   └── api.js         # Centralized fetch wrapper
-│   │   ├── styles/
-│   │   │   └── index.css      # Reset, variables, typography, utilities
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── .env.example
-│   ├── vite.config.js
-│   └── package.json
-│
-├── server/                    # Node.js + Express backend
-│   ├── config/
-│   │   └── db.js              # MongoDB Atlas connection
-│   ├── controllers/
-│   │   ├── contactController.js
-│   │   ├── demoController.js
-│   │   └── newsletterController.js
-│   ├── middleware/
-│   │   ├── errorHandler.js    # Global error middleware
-│   │   ├── notFound.js        # 404 handler
-│   │   └── validateRequest.js # express-validator runner
-│   ├── models/
-│   │   ├── Contact.js
-│   │   ├── DemoBooking.js
-│   │   └── NewsletterSubscriber.js
-│   ├── routes/
-│   │   ├── contact.js
-│   │   ├── demo.js
-│   │   └── newsletter.js
-│   ├── .env.example
-│   ├── server.js
-│   └── package.json
-│
-└── README.md
-```
+## 2. Key Design Decisions
+
+• Monorepo structure (client/ + server/)
+
+• Fully decoupled frontend & backend
+
+• Environment-based API configuration
+
+• Production-ready folder organization
+
+• Scalable controller-based backend architecture
 
 ---
 
-## 3. Local Setup Instructions
+## 3. Local Development Setup
 
 ### Prerequisites
 - Node.js v18+
@@ -106,6 +48,11 @@ vai/
 ### Step 1 — Clone and install
 
 ```bash
+# git Clone
+git clone https://github.com/yourusername/voiceaxis.git
+cd voiceaxis
+
+
 # Install server dependencies
 cd server
 npm install
@@ -115,20 +62,22 @@ cd ../client
 npm install
 ```
 
-### Step 2 — Configure environment
+### Step 2 — Environment Variables
 
 ```bash
-# Server
-cp server/.env.example server/.env
+# Server (server/.env)
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+CLIENT_URL=http://localhost:5173
 # Edit: MONGODB_URI, PORT, CLIENT_URL
 
-# Client
-cp client/.env.example client/.env
+# Client (client/.env)
+VITE_API_BASE_URL=http://localhost:5000/api
 # Edit: VITE_API_BASE_URL
 ```
 
-### Step 3 — Run development servers
-
+### Step 3 — Run Development Servers
+ 
 ```bash
 # Terminal 1: Start backend
 cd server
@@ -141,38 +90,32 @@ npm run dev        # Runs on http://localhost:5173
 
 ---
 
-## 7. Deployment
+## 4. 🚀 Deployment Guide
 
 ### MongoDB Atlas Setup
-1. Go to [cloud.mongodb.com](https://cloud.mongodb.com) → Create free cluster
-2. Create database user: Security → Database Access
-3. Whitelist IP: Network Access → `0.0.0.0/0` (allow all for cloud deployments)
-4. Get connection string: Connect → Drivers → Copy URI
-5. Replace `<password>` in URI with your DB user password
+• MongoDB Atlas (Free Tier)
 
 ### Backend → Render (Free)
-1. Push repo to GitHub
-2. Go to [render.com](https://render.com) → New → Web Service
-3. Connect GitHub repo, select `server/` as root directory
-4. Build: `npm install` | Start: `node server.js`
-5. Add environment variables in Render dashboard:
-   - `MONGODB_URI` = your Atlas URI
-   - `CLIENT_URL` = your Netlify URL (set after frontend deploy)
-   - `NODE_ENV` = `production`
-6. Copy the Render URL (e.g., `https://vai-api.onrender.com`)
+• Root directory → server
+
+• Build → npm install
+
+• Start → node server.js
+
+• Add environment variables
 
 ### Frontend → Netlify (Free)
-1. Go to [netlify.com](https://netlify.com) → New Site → Import from Git
-2. Base directory: `client`
-3. Build command: `npm run build`
-4. Publish directory: `dist`
-5. Add environment variable:
-   - `VITE_API_BASE_URL` = your Render URL + `/api`
-6. Deploy — `_redirects` file handles SPA routing automatically
+• Base directory → client
+
+• Build → npm run build
+
+• Publish → dist
+
+• Add VITE_API_BASE_URL
 
 ---
 
-## 8. Assumptions & Future Improvements
+## 5. Assumptions & Future Improvements
 
 ### Assumptions
 - No authentication required (public marketing site)
