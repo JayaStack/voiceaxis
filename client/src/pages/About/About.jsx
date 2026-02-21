@@ -180,7 +180,7 @@ export default function About() {
         <div className="container">
           <SectionHeader chip="Values" title="What we stand for" />
           <div className={styles.valuesGrid}>
-            {VALUES.map(({ emoji, title, desc }, i) => {
+            {VALUES.map(({ icon, title, desc }, i) => {
               const { ref, isVisible } = useInView();
               return (
                 <div

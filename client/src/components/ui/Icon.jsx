@@ -20,11 +20,12 @@ export default function Icon({
   "aria-label": ariaLabel,
   ...props
 }) {
-  const LucideIcon = Icons[name];
+  let LucideIcon = Icons[name];
   if (!LucideIcon) {
-    console.warn(`Icon "${name}" not found in lucide-react`);
-    return null;
+    console.warn(`Icon "${name}" not found in lucide-react. Falling back to "Circle".`);
+    LucideIcon = Icons["Circle"];
   }
+  if (!LucideIcon) return null; // Final safety
 
   return (
     <span
