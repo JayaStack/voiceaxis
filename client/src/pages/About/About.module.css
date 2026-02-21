@@ -80,9 +80,9 @@
 .valueCard:hover { border-color: var(--color-border-accent); }
 .valueVisible { opacity: 1; transform: translateY(0); }
 
-.valueEmoji {
+.valueIcon {
   display: block;
-  font-size: 2rem;
+  color: var(--color-accent);
   margin-bottom: var(--space-4);
 }
 

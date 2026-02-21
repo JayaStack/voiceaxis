@@ -2,6 +2,7 @@ import { useForm } from "../../hooks/useForm";
 import { bookDemo } from "../../utils/api";
 import Button from "../Button/Button";
 import Field from "./Field";
+import Icon from "../ui/Icon";
 import styles from "./ContactForm.module.css";
 
 const DEMO_INITIAL = {
@@ -42,7 +43,7 @@ export default function DemoForm() {
     return (
       <div className={styles.successBox} role="status">
         <div className={styles.successCheck} aria-hidden="true">
-          ✓
+          <Icon name="Check" size="lg" />
         </div>
         <h3 className={styles.successTitle}>Demo booked!</h3>
         <p className={styles.successDesc}>{serverMessage}</p>

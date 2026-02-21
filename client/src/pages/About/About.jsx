@@ -3,6 +3,7 @@ import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import StatCard from "../../components/StatCard/StatCard";
 import TimelineItem from "../../components/TimelineItem/TimelineItem";
 import TeamCard from "../../components/TeamCard/TeamCard";
+import Icon from "../../components/ui/Icon";
 import styles from "./About.module.css";
 
 const TEAM = [
@@ -96,22 +97,22 @@ const TIMELINE = [
 
 const VALUES = [
   {
-    emoji: "🎯",
+    icon: "Target",
     title: "Radical Clarity",
     desc: "We build products that are powerful and simple. Complexity is a failure of design.",
   },
   {
-    emoji: "🔬",
+    icon: "Microscope",
     title: "Research First",
     desc: "We publish our research openly. The field advances faster when we share what we learn.",
   },
   {
-    emoji: "🌍",
+    icon: "Globe",
     title: "Inclusive by Design",
     desc: "AI should work for every language, accent, and culture — not just English speakers.",
   },
   {
-    emoji: "🤝",
+    icon: "Users2",
     title: "Customer Outcomes",
     desc: "We measure our success exclusively by measurable outcomes for the people using our product.",
   },
@@ -188,8 +189,8 @@ export default function About() {
                   className={`${styles.valueCard} ${isVisible ? styles.valueVisible : ""}`}
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
-                  <span className={styles.valueEmoji} aria-hidden="true">
-                    {emoji}
+                  <span className={styles.valueIcon} aria-hidden="true">
+                    <Icon name={icon} size="xl" />
                   </span>
                   <h3 className={styles.valueTitle}>{title}</h3>
                   <p className={styles.valueDesc}>{desc}</p>

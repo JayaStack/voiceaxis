@@ -2,6 +2,7 @@ import { useState } from 'react'
 import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import PricingCard from '../../components/PricingCard/PricingCard'
 import FaqItem from '../../components/FaqItem/FaqItem'
+import Icon from '../../components/ui/Icon'
 import styles from './Pricing.module.css'
 
 const PLANS = [
@@ -143,13 +144,13 @@ export default function Pricing() {
         <div className="container">
           <div className={styles.guaranteeRow}>
             {[
-              { icon: '🔒', text: 'SOC 2 Type II certified' },
-              { icon: '🌍', text: '15+ data residency regions' },
-              { icon: '⚡', text: '99.99% uptime on Enterprise' },
-              { icon: '🎯', text: '14-day free trial, all plans' },
+              { icon: 'Lock', text: 'SOC 2 Type II certified' },
+              { icon: 'Globe', text: '15+ data residency regions' },
+              { icon: 'Zap', text: '99.99% uptime on Enterprise' },
+              { icon: 'Target', text: '14-day free trial, all plans' },
             ].map(({ icon, text }) => (
               <div key={text} className={styles.guaranteeItem}>
-                <span>{icon}</span>
+                <Icon name={icon} size="md" inline />
                 <span>{text}</span>
               </div>
             ))}

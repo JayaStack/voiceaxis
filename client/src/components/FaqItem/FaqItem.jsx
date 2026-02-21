@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Icon from "../ui/Icon";
 import styles from "./FaqItem.module.css";
 
 export default function FaqItem({ q, a, index }) {
@@ -12,7 +13,9 @@ export default function FaqItem({ q, a, index }) {
         aria-controls={`faq-${index}`}
       >
         <span>{q}</span>
-        <span className={styles.faqIcon} aria-hidden="true">{open ? "−" : "+"}</span>
+        <span className={styles.faqIcon} aria-hidden="true">
+          <Icon name={open ? "Minus" : "Plus"} size="sm" />
+        </span>
       </button>
       <div
         id={`faq-${index}`}

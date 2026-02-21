@@ -1,0 +1,33 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+/* sizes */
+.xs { width: 14px; height: 14px; }
+.sm { width: 16px; height: 16px; }
+.md { width: 20px; height: 20px; }
+.lg { width: 24px; height: 24px; }
+.xl { width: 32px; height: 32px; }
+
+/* inline text spacing */
+.inline {
+  margin-right: 6px;
+}
+
+/* button alignment */
+.buttonIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* mobile optimization */
+@media (max-width: 768px) {
+  .md { width: 18px; height: 18px; }
+  .lg { width: 22px; height: 22px; }
+}

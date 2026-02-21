@@ -132,6 +132,15 @@
   flex-shrink: 0;
 }
 
+.selectedIcon {
+  color: #00d4b4;
+}
+
+.defaultIcon {
+  color: #7a9eb5;
+  opacity: 0.6;
+}
+
 /* Desktop size optimization */
 
 @media (min-width: 1024px) {

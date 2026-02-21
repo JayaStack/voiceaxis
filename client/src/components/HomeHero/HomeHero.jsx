@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
+import Icon from "../ui/Icon";
 import styles from "./HomeHero.module.css";
 
 export default function HomeHero() {
@@ -35,7 +36,9 @@ export default function HomeHero() {
             <Button size="lg">Get a Free Demo</Button>
           </Link>
           <Link to="/features">
-            <Button size="lg" variant="secondary">See How It Works →</Button>
+            <Button size="lg" variant="secondary" className="flex items-center gap-2">
+              See How It Works <Icon name="ArrowRight" size="sm" />
+            </Button>
           </Link>
         </div>
 

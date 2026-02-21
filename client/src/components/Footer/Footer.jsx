@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { subscribeNewsletter } from '../../utils/api'
+import Icon from '../ui/Icon'
 import styles from './Footer.module.css'
 
 const LINKS = {
@@ -70,7 +71,10 @@ export default function Footer() {
             <div className={styles.newsletter}>
               <p className={styles.newsletterLabel}>Product updates, delivered monthly</p>
               {subState === 'success' ? (
-                <p className={styles.newsletterSuccess}>✓ You're subscribed. Welcome aboard.</p>
+                <p className={styles.newsletterSuccess}>
+                  <Icon name="Check" size="sm" inline />
+                  You're subscribed. Welcome aboard.
+                </p>
               ) : (
                 <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
                   <input
@@ -88,7 +92,7 @@ export default function Footer() {
                     disabled={subState === 'loading'}
                     aria-label="Subscribe"
                   >
-                    {subState === 'loading' ? '...' : '→'}
+                    {subState === 'loading' ? '...' : <Icon name="ArrowRight" size="sm" />}
                   </button>
                 </form>
               )}

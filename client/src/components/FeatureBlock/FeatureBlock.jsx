@@ -1,4 +1,5 @@
 import { useInView } from "../../hooks/useInView";
+import Icon from "../ui/Icon";
 import styles from "./FeatureBlock.module.css";
 
 const VisualBlock = ({ type }) => (
@@ -57,10 +58,7 @@ export default function FeatureBlock({ chip, title, desc, features, visual, reve
           {features.map((f) => (
             <li key={f} className={styles.blockFeatureItem}>
               <span className={styles.checkIcon} aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <circle cx="7" cy="7" r="6" fill="var(--color-accent-dim)" stroke="var(--color-border-accent)" strokeWidth="1"/>
-                  <path d="M4.5 7l2 2 3-4" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <Icon name="CheckCircle2" size="sm" />
               </span>
               {f}
             </li>

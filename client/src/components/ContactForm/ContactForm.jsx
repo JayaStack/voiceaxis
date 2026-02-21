@@ -2,6 +2,7 @@ import { useForm } from "../../hooks/useForm";
 import { submitContact } from "../../utils/api";
 import Button from "../Button/Button";
 import Field from "./Field";
+import Icon from "../ui/Icon";
 import styles from "./ContactForm.module.css";
 
 const CONTACT_INITIAL = {
@@ -43,7 +44,7 @@ export default function ContactForm() {
     return (
       <div className={styles.successBox} role="status">
         <div className={styles.successCheck} aria-hidden="true">
-          ✓
+          <Icon name="Check" size="lg" />
         </div>
         <h3 className={styles.successTitle}>Request received!</h3>
         <p className={styles.successDesc}>{serverMessage}</p>

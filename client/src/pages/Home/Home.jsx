@@ -6,6 +6,7 @@ import StatCard from '../../components/StatCard/StatCard'
 import FeatureCard from '../../components/FeatureCard/FeatureCard'
 import TestimonialCard from '../../components/TestimonialCard/TestimonialCard'
 import StepCard from '../../components/StepCard/StepCard'
+import Icon from '../../components/ui/Icon'
 import styles from './Home.module.css'
 
 /* ── Data ── */
@@ -18,57 +19,32 @@ const STATS = [
 
 const FEATURES = [
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/>
-      </svg>
-    ),
+    icon: 'Mic',
     title: 'Natural Voice Intelligence',
     desc: 'Conversational AI that grasps context, intent, and emotion — not just keywords. Sub-200ms latency feels indistinguishable from a human agent.',
   },
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-      </svg>
-    ),
+    icon: 'Globe',
     title: 'Omnichannel Deployment',
     desc: 'Deploy across phone, web, mobile, and WhatsApp from a single platform. Unified conversation context regardless of channel.',
   },
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5Z"/>
-      </svg>
-    ),
+    icon: 'Wand2',
     title: 'No-Code Agent Builder',
     desc: 'Design full conversation flows with drag-and-drop. Go from concept to live deployment in under four hours — no engineers required.',
   },
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 3v18h18"/><path d="M18 17 13 12l-4 4-3-3"/>
-      </svg>
-    ),
+    icon: 'BarChart3',
     title: 'Real-Time Analytics',
     desc: 'Live dashboards tracking resolution rate, sentiment trends, escalation patterns, and revenue impact. Every call generates insight.',
   },
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5"/><path d="M3 12c0 1.657 4.03 3 9 3s9-1.343 9-3"/>
-      </svg>
-    ),
+    icon: 'Blocks',
     title: 'Enterprise Integrations',
     desc: 'Pre-built connectors for Salesforce, HubSpot, Zendesk, ServiceNow, and 200+ tools. REST API for everything else.',
   },
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-      </svg>
-    ),
+    icon: 'ShieldCheck',
     title: 'SOC 2 Type II Security',
     desc: 'End-to-end encryption, GDPR compliance, HIPAA-ready configurations, and full audit trails. Your data never leaves your region.',
   },
@@ -148,7 +124,9 @@ export default function Home() {
 
           <div className={styles.featuresCta}>
             <Link to="/features">
-              <Button variant="secondary">Explore all features →</Button>
+              <Button variant="secondary" className="flex items-center gap-2">
+                Explore all features <Icon name="ArrowRight" size="sm" />
+              </Button>
             </Link>
           </div>
         </div>

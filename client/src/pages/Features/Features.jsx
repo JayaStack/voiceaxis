@@ -3,6 +3,7 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader'
 import Button from '../../components/Button/Button'
 import FeatureBlock from '../../components/FeatureBlock/FeatureBlock'
 import SecurityCard from '../../components/SecurityCard/SecurityCard'
+import Icon from '../../components/ui/Icon'
 import styles from './Features.module.css'
 
 const FEATURE_BLOCKS = [
@@ -65,10 +66,10 @@ const FEATURE_BLOCKS = [
 ]
 
 const SECURITY = [
-  { icon: '🔒', title: 'SOC 2 Type II', desc: 'Annual third-party security audits. Continuous monitoring and penetration testing.' },
-  { icon: '🛡️', title: 'GDPR & HIPAA', desc: 'Data residency in 15+ regions. Right-to-delete workflows built in.' },
-  { icon: '🔐', title: 'Zero-trust Architecture', desc: 'TLS 1.3 in transit. AES-256 at rest. Every API call authenticated and logged.' },
-  { icon: '📋', title: 'Audit Trail', desc: 'Immutable logs of every agent action, configuration change, and data access.' },
+  { icon: 'Lock', title: 'SOC 2 Type II', desc: 'Annual third-party security audits. Continuous monitoring and penetration testing.' },
+  { icon: 'Shield', title: 'GDPR & HIPAA', desc: 'Data residency in 15+ regions. Right-to-delete workflows built in.' },
+  { icon: 'Key', title: 'Zero-trust Architecture', desc: 'TLS 1.3 in transit. AES-256 at rest. Every API call authenticated and logged.' },
+  { icon: 'ClipboardList', title: 'Audit Trail', desc: 'Immutable logs of every agent action, configuration change, and data access.' },
 ]
 
 export default function Features() {

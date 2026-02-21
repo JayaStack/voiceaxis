@@ -2,6 +2,7 @@ import { useState } from "react";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import DemoForm from "../../components/ContactForm/DemoForm";
+import Icon from "../../components/ui/Icon";
 import styles from "./Contact.module.css";
 
 /* ─── Page ───────────────────────────────────── */
@@ -57,16 +58,16 @@ export default function Contact() {
                 <h3 className={styles.infoTitle}>Contact Information</h3>
                 <div className={styles.infoItems}>
                   {[
-                    { icon: "📧", label: "Sales", val: "sales@voiceaxis.io" },
+                    { icon: "Mail", label: "Sales", val: "sales@voiceaxis.io" },
                     {
-                      icon: "🛟",
+                      icon: "LifeBuoy",
                       label: "Support",
                       val: "support@voiceaxis.io",
                     },
-                    { icon: "📞", label: "Hotline", val: "+91-755-516-4186" },
+                    { icon: "Phone", label: "Hotline", val: "+91-755-516-4186" },
                   ].map(({ icon, label, val }) => (
                     <div key={label} className={styles.infoItem}>
-                      <span className={styles.infoIcon}>{icon}</span>
+                      <Icon name={icon} size="md" className={styles.infoIcon} />
                       <div>
                         <div className={styles.infoLabel}>{label}</div>
                         <div className={styles.infoVal}>{val}</div>
